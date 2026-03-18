@@ -1,6 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from "react"
-
-type Lang = "zh" | "en"
+import type { Lang } from "../i18n"
 type User = { logged_in: true; id: string; login: string; avatar: string; upload_count: number }
 type Upload = { file_name: string; file_size: number; created_at: string }
 
@@ -9,7 +8,7 @@ interface Props {
 }
 
 export default function Contribute({ lang }: Props) {
-  const L = (zh: string, en: string) => (lang === "zh" ? zh : en)
+  const L = (zh: string, en: string, ja?: string) => (lang === "zh" ? zh : lang === "ja" ? (ja ?? en) : en) // other langs fallback to en
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
   const [wechatId, setWechatId] = useState("")
