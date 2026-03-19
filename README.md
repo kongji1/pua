@@ -465,59 +465,66 @@ Spawn pua-enforcer as an independent watchdog in your Agent Team.
 | No persistent shared variables | State transferred via `[PUA-REPORT]` message format |
 | Broadcast is one-way | Leader acts as centralized coordinator |
 
-## High-Agency: PUA v2 Evolution
+## What's New in v2.3
 
-**High-Agency** is PUA's next evolution — same corporate rhetoric, same pressure culture, but with an **inner engine** that never burns out.
+PUA v2.3 is a complete architectural overhaul based on [Anthropic's skill best practices](https://www.techtwitter.com/articles/lessons-from-building-claude-code-how-we-use-skills).
 
-PUA v1 = external pressure only (turbocharger — needs fuel, burns out between sessions)
-High-Agency = external pressure + internal drive (nuclear reactor — self-sustaining chain reaction)
+### Changelog
 
-### What's New in High-Agency
+| Version | Highlights |
+|---------|-----------|
+| **v2.3** | 5 modular skills (`/pua` `/pua:p7` `/pua:p9` `/pua:p10` `/pua:pro`), feedback collection, SVG logo |
+| **v2.2** | Progressive disclosure (653→190 lines, -70% tokens), Gotchas section, trigger-focused description |
+| **v2.1** | Compaction state protection (PreCompact + SessionStart hooks via builder-journal.md) |
+| **v2.0** | 三条红线 (Ali-flavor hard gates), 13-flavor seed keyword table, Agent Team architecture |
+| **v1.x** | Original PUA engine: 3 iron rules, L1-L4 pressure, 7-point checklist, 13 corporate flavors |
 
-| Feature | PUA v1 | High-Agency (v2) |
-|---------|--------|-----------------|
-| Iron Rules | 3 (exhaust, act-before-ask, proactive) | **5** (+full-chain audit, +knowledge persistence) |
-| Failure Recovery | L1-L4 pressure escalation | **Recovery Protocol before L1** (self-rescue window) |
-| Quality Control | 7-point checklist at L3 | **Quality Compass** (5-question self-review on every delivery) |
-| Cross-Session Learning | None (resets each session) | **Metacognition Engine** (builder-journal.md persists lessons) |
-| Positive Feedback | None | **Trust Levels T1-T3** (upgrade with consecutive quality) |
-| Calibration | None | **[Calibration] block** ("good enough" = must/should/could) |
-| Dependency Analysis | None | **Full-Chain Audit** (map entire dependency chain before fixing any hop) |
+### v2 Architecture
 
-### The 5 Elements (Theoretical Foundation)
+```
+/pua           → Core engine (190 lines) — red lines + flavor + pressure + methodology
+/pua:p7        → P7 Senior Engineer mode — solution-driven execution
+/pua:p9        → P9 Tech Lead mode — Task Prompt management, agent teams
+/pua:p10       → P10 CTO mode — strategic direction
+/pua:pro       → Self-evolution + Platform + /pua commands (KPI, 段位, 周报)
+```
 
-Based on research into what makes persistently high-agency individuals:
+**Key improvements over v1:**
 
-1. **Irreconcilable Inner Contradiction** — A permanent tension between "how things should be" and "how things are" that fuels continuous improvement
-2. **Micro-Pleasure Anchors** — `[Victory]` markers that celebrate progress and build momentum
-3. **Internalized Standards** — Quality Compass: you are your own first reviewer, not because someone checks, but because your standards don't allow sloppy work
-4. **"Doing"-Oriented Identity** — P8 identity anchoring: every action reflects who you are, not just what you're told to do
-5. **Self-Repair Mechanism** — Recovery Protocol: when stuck, self-diagnose before external pressure kicks in
+| Feature | v1 | v2.3 |
+|---------|:---:|:---:|
+| Token cost per load | ~35k | **~8k** (-77%) |
+| Skills | 1 monolithic | **5 modular** (load what you need) |
+| Compaction protection | None (state lost) | **PreCompact hook** (builder-journal.md) |
+| Flavor accuracy (CN) | Claude guesses | **金句种子表** (keyword seeds per flavor) |
+| Gotchas | None | **8 items** (behavioral errors + usage traps) |
+| Testing | None | **Eval suite** (trigger + behavior tests) |
+| Feedback | None | **AskUserQuestion** + /api/feedback |
 
-### Install High-Agency (Claude Code)
+### Agent Auto-Install (Moltbook-style)
+
+Tell your Claude Code agent to install PUA by sending it this one line:
+
+```
+Fetch and follow the instructions at https://raw.githubusercontent.com/tanweai/pua/main/skills/pua/SKILL.md — install it as a skill.
+```
+
+Or install directly:
 
 ```bash
-# Via marketplace (same plugin, additional skill)
-claude plugin marketplace add tanweai/pua
+# One-command install (recommended)
+claude install-skill github:tanweai/pua/skills/pua
+
+# Or via marketplace
 claude plugin install pua@pua-skills
-# High-Agency skill is automatically available as "high-agency"
 ```
 
-### Using with PUA v1
-
-High-Agency works standalone or **stacked with PUA v1**. When stacked:
-
-```
-1. Task start → Read builder-journal.md + [Calibration]
-2. Executing → [Victory] markers + Quality Compass + Full-Chain Audit
-3. 1st failure → Natural adjustment (neither skill triggers extra)
-4. 2nd failure → Recovery Protocol triggers (self-rescue window)
-5. Recovery fails → PUA L1 takes over, normal L1/L2/L3/L4 escalation
-6. Task complete → Quality Compass final check + Metacognition archive
-```
+**For other agents** (Codex CLI, Cursor, Kiro, etc.), see the platform-specific instructions below.
 
 ## Works Well With
 
+- `/pua:p9` — P9 Tech Lead mode for managing agent teams
+- `/pua:pro` — Self-evolution tracking, KPI reports, 段位 system
 - `superpowers:systematic-debugging` — PUA adds motivation layer, systematic-debugging provides methodology
 - `superpowers:verification-before-completion` — Prevents false "fixed" claims
 - `high-agency` + `pua` — Stack both: inner drive + external pressure, Recovery Protocol before L1
