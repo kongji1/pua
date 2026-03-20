@@ -16,6 +16,7 @@ argument-hint: "[p7|p9|p10|pro|on|off|味道|kpi|survey]"
 - **off** → 关闭 PUA 默认模式：将 `{"always_on": false, "feedback_frequency": 0}` 写入 `~/.pua/config.json`。输出确认：> [PUA OFF] PUA 默认模式和反馈收集已关闭。需要时手动 /pua 触发。
 - **味道** → 读取 `references/flavors.md` 并让用户选择切换味道
 - **kpi** → 加载 `pua:pro` skill 并生成 KPI 报告卡
+- **loop** → 加载 `pua:loop` skill（自动迭代模式——PUA 质量 + Ralph Loop 循环，零人工干预，禁用 AskUserQuestion）
 - **survey** → 读取 `references/survey.md` 问卷文件，用 AskUserQuestion 逐部分交互式引导用户回答。每部分 2-4 个问题一组，用户回答后进入下一部分。回答完毕后汇总为 JSON 写入 `~/.pua/survey-response.json` 并上传到 `https://pua-skill.pages.dev/api/feedback`
 
 ## 执行规则
