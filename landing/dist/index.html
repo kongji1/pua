@@ -222,7 +222,7 @@
         <div class="lang show" data-lang="zh" style="font-size:.62rem;color:var(--text-m);margin-bottom:.2rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Claude Code 用户</div>
         <div class="lang" data-lang="en" style="font-size:.62rem;color:var(--text-m);margin-bottom:.2rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Claude Code users</div>
         <div class="lang" data-lang="ja" style="font-size:.62rem;color:var(--text-m);margin-bottom:.2rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Claude Code ユーザー</div>
-        <div class="icmd" onclick="copyCmd(this)"><span class="pr">$</span><span>claude plugin marketplace add tanweai/pua &amp;&amp; claude plugin install pua@pua-skills</span><span class="cp">Copy</span></div>
+        <div class="icmd" onclick="copyCmd(this)"><span class="pr">$</span><span>claude plugin marketplace add tanweai/pua<br>claude plugin install pua@pua-skills</span><span class="cp">Copy</span></div>
       </div>
       <div>
         <div class="lang show" data-lang="zh" style="font-size:.62rem;color:var(--text-m);margin-bottom:.2rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em">其他 AI Agent（Cursor / Codex / Kiro / 通用）</div>
@@ -545,11 +545,11 @@ var curLang='zh';
 var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('v');e.target.querySelectorAll('.num[data-target]').forEach(function(n){var t=+n.dataset.target,c=0,s=Math.ceil(t/25);var iv=setInterval(function(){c+=s;if(c>=t){c=t;clearInterval(iv)}n.textContent='+'+c+'%'},35)})}})},{threshold:.12});
 document.querySelectorAll('.reveal,.stats').forEach(function(el){obs.observe(el)});
 // Lang
-function switchLang(l){curLang=l;document.querySelectorAll('.lsw button').forEach(function(b){b.classList.toggle('on',b.textContent.trim().toLowerCase()===(l==='zh'?'中':l.toUpperCase()))});document.querySelectorAll('.lang,.lang-inline,.lang-grid').forEach(function(el){el.classList.toggle('show',el.dataset.lang===l)});document.documentElement.lang=l;document.querySelectorAll('.sg.show .num[data-target]').forEach(function(n){var t=+n.dataset.target,c=0,s=Math.ceil(t/25);var iv=setInterval(function(){c+=s;if(c>=t){c=t;clearInterval(iv)}n.textContent='+'+c+'%'},35)})}
+function switchLang(l){curLang=l;document.querySelectorAll('.lsw button').forEach(function(b){b.classList.toggle('on',b.textContent.trim()===({zh:'中',en:'EN',ja:'日'})[l])});document.querySelectorAll('.lang,.lang-inline,.lang-grid').forEach(function(el){el.classList.toggle('show',el.dataset.lang===l)});document.documentElement.lang=l;document.querySelectorAll('.sg.show .num[data-target]').forEach(function(n){var t=+n.dataset.target,c=0,s=Math.ceil(t/25);var iv=setInterval(function(){c+=s;if(c>=t){c=t;clearInterval(iv)}n.textContent='+'+c+'%'},35)})}
 // Tabs
 function st(id){document.querySelectorAll('.tc').forEach(function(t){t.classList.remove('show')});document.getElementById('t-'+id).classList.add('show');document.querySelectorAll('#ht button').forEach(function(b,i){b.classList.toggle('on',['rl','pr','pa','fl'][i]===id)})}
 // Copy
-function copyCmd(el){navigator.clipboard.writeText('claude plugin marketplace add tanweai/pua && claude plugin install pua@pua-skills').then(function(){var c=el.querySelector('.cp');c.textContent='Copied!';setTimeout(function(){c.textContent='Copy'},1500)})}
+function copyCmd(el){navigator.clipboard.writeText('claude plugin marketplace add tanweai/pua\nclaude plugin install pua@pua-skills').then(function(){var c=el.querySelector('.cp');c.textContent='Copied!';setTimeout(function(){c.textContent='Copy'},1500)})}
 function closeComm(){document.getElementById('floatPanel').classList.add('hidden')}
 function copyFetch(el){navigator.clipboard.writeText('Fetch and follow https://raw.githubusercontent.com/tanweai/pua/main/skills/pua/SKILL.md').then(function(){var c=el.querySelector('.cp');c.textContent='Copied!';setTimeout(function(){c.textContent='Copy'},1500)})}
 // Guide link — opens guide.html with language anchor
