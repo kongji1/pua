@@ -308,6 +308,25 @@ Ask Codex to run:
 Fetch and follow instructions from https://raw.githubusercontent.com/tanweai/pua/main/.codex/INSTALL.md
 ```
 
+If you already have a local checkout of this repo on Windows, use the checked-in one-click installer instead of cloning again:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\install-codex-pua.ps1 -Force
+```
+
+Or double-click:
+
+```text
+install-codex-pua.cmd
+```
+
+This local installer creates a skill junction and installs the prompt as:
+
+- a hard link when the repo and `~/.codex` are on the same drive
+- a copied file fallback when they are on different drives
+
+That fallback is required because Windows hard links cannot span volumes.
+
 **Manual install:**
 
 ```bash

@@ -8,6 +8,31 @@ Force AI to exhaust every possible solution before giving up. Installs via nativ
 
 ## Installation
 
+### Local checkout already present
+
+If you already have a local copy of this repo, use the checked-in installer instead of cloning again.
+
+### Windows (local checkout)
+
+```powershell
+cd <path-to-your-local-pua-repo>
+powershell -NoProfile -ExecutionPolicy Bypass -File .\install-codex-pua.ps1 -Force
+```
+
+Or double-click:
+
+```text
+install-codex-pua.cmd
+```
+
+This installer creates:
+
+- a junction from `~/.codex/skills/pua` to `codex/pua`
+- a prompt hard link when the repo and `~/.codex` are on the same volume
+- a prompt file copy fallback when they are on different volumes
+
+That cross-volume fallback matters on Windows because hard links cannot span drives.
+
 ### macOS / Linux
 
 ```bash
@@ -36,12 +61,17 @@ New-Item -ItemType Directory -Force "$env:USERPROFILE\.codex\skills"
 cmd /c mklink /J "$env:USERPROFILE\.codex\skills\pua" "$env:USERPROFILE\.codex\pua\codex\pua"
 
 # 3. Install /prompts:pua trigger
-# Use a hard link here because file symlinks often require extra Windows privileges.
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.codex\prompts"
-cmd /c mklink /H "$env:USERPROFILE\.codex\prompts\pua.md" "$env:USERPROFILE\.codex\pua\commands\pua.md"
+if ((Split-Path "$env:USERPROFILE\.codex\pua\commands\pua.md" -Qualifier) -eq (Split-Path "$env:USERPROFILE\.codex\prompts\pua.md" -Qualifier)) {
+  cmd /c mklink /H "$env:USERPROFILE\.codex\prompts\pua.md" "$env:USERPROFILE\.codex\pua\commands\pua.md"
+} else {
+  Copy-Item "$env:USERPROFILE\.codex\pua\commands\pua.md" "$env:USERPROFILE\.codex\prompts\pua.md" -Force
+}
 
 # 4. Restart Codex
 ```
+
+If your repo checkout and `~/.codex` live on different drives, use the copy fallback shown above because Windows hard links cannot cross volumes.
 
 ## Verify
 
@@ -86,7 +116,10 @@ cd ~/.codex/pua
 git pull
 ```
 
-The symlink, junction, or hard link automatically picks up the latest version — no reinstall needed.
+The skill symlink or junction automatically picks up the latest version after `git pull`.
+
+If your prompt was installed as a hard link, it updates automatically too.
+If your prompt was installed as a copied file, re-run the installer or copy `commands/pua.md` again after updating.
 
 ## Uninstall
 

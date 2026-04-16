@@ -288,6 +288,26 @@ Codex CLI 使用相同的 Agent Skills 开放标准（SKILL.md）。Codex 版本
 Fetch and follow instructions from https://raw.githubusercontent.com/tanweai/pua/main/.codex/INSTALL.md
 ```
 
+如果你在 Windows 上已经有这个仓库的本地副本，推荐直接使用仓库内置的一键安装脚本，不必再 clone 一次：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\install-codex-pua.ps1 -Force
+```
+
+或者直接双击：
+
+```text
+install-codex-pua.cmd
+```
+
+这个本地安装器会：
+
+- 用目录联接把 skill 安装到 `~/.codex/skills/pua`
+- 当仓库和 `~/.codex` 在同一盘时，为 prompt 创建硬链接
+- 当仓库和 `~/.codex` 不在同一盘时，自动回退为复制 prompt 文件
+
+之所以需要这个回退，是因为 Windows 硬链接不能跨盘。
+
 **手动安装：**
 
 ```bash

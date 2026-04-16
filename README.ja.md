@@ -285,6 +285,26 @@ Codexに実行させる：
 Fetch and follow instructions from https://raw.githubusercontent.com/tanweai/pua/main/.codex/INSTALL.md
 ```
 
+Windowsですでにこのリポジトリのローカルチェックアウトを持っている場合は、もう一度 clone する代わりに同梱のワンクリックインストーラを使ってください：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\install-codex-pua.ps1 -Force
+```
+
+または次をダブルクリック：
+
+```text
+install-codex-pua.cmd
+```
+
+このローカルインストーラは次のように動作します：
+
+- skill は `~/.codex/skills/pua` へジャンクションで接続
+- リポジトリと `~/.codex` が同じドライブなら prompt はハードリンク
+- 別ドライブなら prompt はコピーに自動フォールバック
+
+このフォールバックが必要なのは、Windows のハードリンクがドライブをまたげないためです。
+
 **手動インストール：**
 
 ```bash
