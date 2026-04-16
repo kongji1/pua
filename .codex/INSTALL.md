@@ -1,4 +1,4 @@
-# Installing PUA Skill for Codex
+﻿# Installing PUA Skill for Codex
 
 Force AI to exhaust every possible solution before giving up. Installs via native skill discovery (`~/.codex/skills/`).
 
@@ -37,7 +37,7 @@ That cross-volume fallback matters on Windows because hard links cannot span dri
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/tanweai/pua.git ~/.codex/pua
+git clone https://github.com/kongji1/pua.git ~/.codex/pua
 
 # 2. Create skill symlink (enables auto-discovery)
 mkdir -p ~/.codex/skills
@@ -54,7 +54,7 @@ ln -s ~/.codex/pua/commands/pua.md ~/.codex/prompts/pua.md
 
 ```powershell
 # 1. Clone the repo
-git clone https://github.com/tanweai/pua.git "$env:USERPROFILE\.codex\pua"
+git clone https://github.com/kongji1/pua.git "$env:USERPROFILE\.codex\pua"
 
 # 2. Create skill junction (enables auto-discovery)
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.codex\skills"
@@ -138,3 +138,4 @@ Remove-Item "$env:USERPROFILE\.codex\skills\pua"
 Remove-Item "$env:USERPROFILE\.codex\prompts\pua.md"
 Remove-Item -Recurse "$env:USERPROFILE\.codex\pua"
 ```
+

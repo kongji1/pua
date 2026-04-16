@@ -1,4 +1,4 @@
-# pua
+﻿# pua
 
 <p align="center">
   <img src="assets/hero.jpeg" alt="PUA Skill — Double Efficiency" width="250">
@@ -226,7 +226,7 @@ Choose the file with the corresponding language suffix when installing. See plat
 Vercel Skills CLI is a general installation method for skills and is not tied to a specific AI tool. This English README installs the English skill:
 
 ```bash
-npx skills add tanweai/pua --skill pua-en
+npx skills add kongji1/pua --skill pua-en
 ```
 
 If the current session does not pick up the new skill immediately, restart your AI tool.
@@ -234,7 +234,7 @@ If the current session does not pick up the new skill immediately, restart your 
 ### Claude Code
 
 ```bash
-claude plugin marketplace add tanweai/pua
+claude plugin marketplace add kongji1/pua
 claude plugin install pua@pua-skills
 ```
 
@@ -249,7 +249,7 @@ claude plugin update pua@pua-skills
 **Developer install (source):**
 
 ```bash
-git clone https://github.com/tanweai/pua ~/.claude/plugins/pua
+git clone https://github.com/kongji1/pua ~/.claude/plugins/pua
 ```
 
 Then manually register in `~/.claude/plugins/installed_plugins.json`:
@@ -277,7 +277,7 @@ Restart Claude Code. To update: `git pull` inside `~/.claude/plugins/pua`.
 
 ```bash
 curl -o ~/.claude/commands/pua.md \
-  https://raw.githubusercontent.com/tanweai/pua/main/commands/pua.md
+  https://raw.githubusercontent.com/kongji1/pua/main/commands/pua.md
 ```
 
 Adds a bare `/pua` alias on top of the plugin. Sub-commands route through the installed plugin's skills — **the plugin must be installed first** for anything beyond `on`/`off` to work:
@@ -305,7 +305,7 @@ Codex CLI uses the same Agent Skills open standard (SKILL.md). The Codex version
 
 Ask Codex to run:
 ```
-Fetch and follow instructions from https://raw.githubusercontent.com/tanweai/pua/main/.codex/INSTALL.md
+Fetch and follow instructions from https://raw.githubusercontent.com/kongji1/pua/main/.codex/INSTALL.md
 ```
 
 If you already have a local checkout of this repo on Windows, use the checked-in one-click installer instead of cloning again:
@@ -332,11 +332,11 @@ That fallback is required because Windows hard links cannot span volumes.
 ```bash
 mkdir -p ~/.codex/skills/pua
 curl -o ~/.codex/skills/pua/SKILL.md \
-  https://raw.githubusercontent.com/tanweai/pua/main/codex/pua/SKILL.md
+  https://raw.githubusercontent.com/kongji1/pua/main/codex/pua/SKILL.md
 
 mkdir -p ~/.codex/prompts
 curl -o ~/.codex/prompts/pua.md \
-  https://raw.githubusercontent.com/tanweai/pua/main/commands/pua.md
+  https://raw.githubusercontent.com/kongji1/pua/main/commands/pua.md
 ```
 
 **Trigger methods:**
@@ -352,11 +352,11 @@ Project-level install (current project only):
 ```bash
 mkdir -p .agents/skills/pua
 curl -o .agents/skills/pua/SKILL.md \
-  https://raw.githubusercontent.com/tanweai/pua/main/codex/pua/SKILL.md
+  https://raw.githubusercontent.com/kongji1/pua/main/codex/pua/SKILL.md
 
 mkdir -p .agents/prompts
 curl -o .agents/prompts/pua.md \
-  https://raw.githubusercontent.com/tanweai/pua/main/commands/pua.md
+  https://raw.githubusercontent.com/kongji1/pua/main/commands/pua.md
 ```
 
 ### Cursor
@@ -367,7 +367,7 @@ Cursor uses `.mdc` rule files (Markdown + YAML frontmatter). The PUA rule trigge
 # Project-level install (recommended)
 mkdir -p .cursor/rules
 curl -o .cursor/rules/pua.mdc \
-  https://raw.githubusercontent.com/tanweai/pua/main/cursor/rules/pua.mdc
+  https://raw.githubusercontent.com/kongji1/pua/main/cursor/rules/pua.mdc
 ```
 
 ### Kiro
@@ -379,7 +379,7 @@ Kiro supports two loading methods: **Steering** (auto semantic trigger) and **Ag
 ```bash
 mkdir -p .kiro/steering
 curl -o .kiro/steering/pua.md \
-  https://raw.githubusercontent.com/tanweai/pua/main/kiro/steering/pua.md
+  https://raw.githubusercontent.com/kongji1/pua/main/kiro/steering/pua.md
 ```
 
 **Option 2: Agent Skills (same format as Claude Code)**
@@ -387,7 +387,7 @@ curl -o .kiro/steering/pua.md \
 ```bash
 mkdir -p .kiro/skills/pua
 curl -o .kiro/skills/pua/SKILL.md \
-  https://raw.githubusercontent.com/tanweai/pua/main/skills/pua/SKILL.md
+  https://raw.githubusercontent.com/kongji1/pua/main/skills/pua/SKILL.md
 ```
 
 ### CodeBuddy (Tencent)
@@ -396,13 +396,13 @@ CodeBuddy uses the same AgentSkills open standard (SKILL.md). Plugin and skill f
 
 ```bash
 # Option 1: Install via marketplace
-codebuddy plugin marketplace add tanweai/pua
+codebuddy plugin marketplace add kongji1/pua
 codebuddy plugin install pua@pua-skills
 
 # Option 2: Manual install (global)
 mkdir -p ~/.codebuddy/skills/pua
 curl -o ~/.codebuddy/skills/pua/SKILL.md \
-  https://raw.githubusercontent.com/tanweai/pua/main/codebuddy/pua/SKILL.md
+  https://raw.githubusercontent.com/kongji1/pua/main/codebuddy/pua/SKILL.md
 ```
 
 Project-level install (current project only):
@@ -410,7 +410,7 @@ Project-level install (current project only):
 ```bash
 mkdir -p .codebuddy/skills/pua
 curl -o .codebuddy/skills/pua/SKILL.md \
-  https://raw.githubusercontent.com/tanweai/pua/main/codebuddy/pua/SKILL.md
+  https://raw.githubusercontent.com/kongji1/pua/main/codebuddy/pua/SKILL.md
 ```
 
 ### OpenClaw
@@ -424,7 +424,7 @@ clawhub install pua
 # Or manual install
 mkdir -p ~/.openclaw/skills/pua
 curl -o ~/.openclaw/skills/pua/SKILL.md \
-  https://raw.githubusercontent.com/tanweai/pua/main/skills/pua/SKILL.md
+  https://raw.githubusercontent.com/kongji1/pua/main/skills/pua/SKILL.md
 ```
 
 Project-level install (current project only):
@@ -432,7 +432,7 @@ Project-level install (current project only):
 ```bash
 mkdir -p skills/pua
 curl -o skills/pua/SKILL.md \
-  https://raw.githubusercontent.com/tanweai/pua/main/skills/pua/SKILL.md
+  https://raw.githubusercontent.com/kongji1/pua/main/skills/pua/SKILL.md
 ```
 
 ### Google Antigravity
@@ -443,7 +443,7 @@ Antigravity uses the same AgentSkills open standard (SKILL.md). Skills work acro
 # Global install (all projects)
 mkdir -p ~/.gemini/antigravity/skills/pua
 curl -o ~/.gemini/antigravity/skills/pua/SKILL.md \
-  https://raw.githubusercontent.com/tanweai/pua/main/skills/pua/SKILL.md
+  https://raw.githubusercontent.com/kongji1/pua/main/skills/pua/SKILL.md
 ```
 
 Project-level install (current project only):
@@ -451,7 +451,7 @@ Project-level install (current project only):
 ```bash
 mkdir -p .agent/skills/pua
 curl -o .agent/skills/pua/SKILL.md \
-  https://raw.githubusercontent.com/tanweai/pua/main/skills/pua/SKILL.md
+  https://raw.githubusercontent.com/kongji1/pua/main/skills/pua/SKILL.md
 ```
 
 ### OpenCode
@@ -462,7 +462,7 @@ OpenCode uses the same AgentSkills open standard (SKILL.md). Zero modifications 
 # Global install (all projects)
 mkdir -p ~/.config/opencode/skills/pua
 curl -o ~/.config/opencode/skills/pua/SKILL.md \
-  https://raw.githubusercontent.com/tanweai/pua/main/skills/pua/SKILL.md
+  https://raw.githubusercontent.com/kongji1/pua/main/skills/pua/SKILL.md
 ```
 
 Project-level install (current project only):
@@ -470,7 +470,7 @@ Project-level install (current project only):
 ```bash
 mkdir -p .opencode/skills/pua
 curl -o .opencode/skills/pua/SKILL.md \
-  https://raw.githubusercontent.com/tanweai/pua/main/skills/pua/SKILL.md
+  https://raw.githubusercontent.com/kongji1/pua/main/skills/pua/SKILL.md
 ```
 
 ### VSCode (GitHub Copilot)
@@ -533,7 +533,7 @@ Leader manages global pressure levels and cross-teammate failure transfer.
 ```bash
 mkdir -p .claude/agents
 curl -o .claude/agents/pua-enforcer.md \
-  https://raw.githubusercontent.com/tanweai/pua/main/agents/pua-enforcer-en.md
+  https://raw.githubusercontent.com/kongji1/pua/main/agents/pua-enforcer-en.md
 ```
 
 Spawn pua-enforcer as an independent watchdog in your Agent Team.
@@ -735,7 +735,7 @@ ls ~/.codex/sessions/*.jsonl
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=tanweai/pua&type=Date)](https://star-history.com/#tanweai/pua&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=kongji1/pua&type=Date)](https://star-history.com/#kongji1/pua&Date)
 
 ## License
 
@@ -744,3 +744,4 @@ MIT
 ## Credits
 
 By [TanWei Security Lab](https://github.com/tanweai) — making AI try harder, one PUA at a time.
+

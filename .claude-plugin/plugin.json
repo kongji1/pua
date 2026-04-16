@@ -1,4 +1,4 @@
-{
+﻿{
     "name": "pua",
     "version": "3.1.0",
     "description": "Forces high-agency exhaustive problem-solving with corporate PUA pressure. Triggers on user frustration, repeated failures, passive behavior, or quality complaints. Common triggers: try harder, figure it out, stop giving up, you keep failing, stop spinning, you broke it, why does this still not work, 加油, 别偷懒, 你再试试, 又错了, 降智了, 你又在原地打转, 你把之前的改坏了, 别让我手动处理, /pua. All task types.",
@@ -7,7 +7,7 @@
         "url": "https://github.com/tanweai"
     },
     "homepage": "https://openpua.ai",
-    "repository": "https://github.com/tanweai/pua",
+    "repository": "https://github.com/kongji1/pua",
     "license": "MIT",
     "keywords": [
         "pua",
@@ -27,3 +27,4 @@
         "chinese-mom"
     ]
 }
+
